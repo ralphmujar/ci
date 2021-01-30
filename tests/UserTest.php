@@ -12,7 +12,7 @@ class UserTest extends TestCase
     {
         $this->oUser = new User;
         $this->oUser->name = 'Ralph';
-        $this->assertEquals('Ralph', $this->oUser->getName());
+        $this->assertEquals(0, $this->oUser->getName());
     }
 
 }
