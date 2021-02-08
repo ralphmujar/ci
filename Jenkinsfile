@@ -3,25 +3,16 @@ pipeline {
 
     stages {
 
-        stage("build") {
-
-            steps {
-                sh 'docker -v'
-            }
-        }
-
         stage("test") {
-
             steps {
-                echo 'testing the application....' 
+				sh "phpunit tests"
             }
         }
 
 
         stage("deploy") {
-
             steps {
-                echo 'deploying the application...'
+               sh "echo deployed!"
             }
         }
 
