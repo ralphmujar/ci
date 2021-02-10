@@ -19,8 +19,8 @@ pipeline {
 
         stage("deploy") {
             steps {
-               sh "echo deployed!"
-            }
+               sh "cp *.php /var/www/html/"
+           }
         }
 
 
