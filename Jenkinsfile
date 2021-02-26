@@ -1,27 +1,13 @@
 pipeline {
     agent any
+	parameters {
+		choice(name: 'POD', choices:['dev', 'qa', 'prod'], description: '')
+	}
 
     stages {
-
-        stage("build") {
-
-            steps {
-                sh 'docker -v'
-            }
-        }
-
-        stage("test") {
-
-            steps {
-                echo 'testing the application....' 
-            }
-        }
-
-
         stage("deploy") {
-
             steps {
-                echo 'deploying the application...'
+                build job: 'down', parameters[string(name: 'SRV', value: '${POD}')]
             }
         }
 
