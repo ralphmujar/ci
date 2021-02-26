@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage("deploy") {
             steps {
-                build job: 'storybot.down', parameters[string(name: 'SRV', value: String.valueOf(POD))]
+                build job: 'down', parameters[string(name: 'SRV', value: String.valueOf(POD))]
             }
         }
 
