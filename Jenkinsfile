@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("deploy") {
             steps {
-                build job: 'down', parameters: [string(name: 'SRV', value: String.valueOf(POD))]
+                build job: 'down', parameters: [string(name: 'SRV', value: String.valueOf(POD)), string(name: 'image', value: 'ralphmujar/node:'+env.GIT_COMMIT)]
             }
         }
 
